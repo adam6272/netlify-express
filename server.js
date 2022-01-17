@@ -1,7 +1,14 @@
-const express = require("express");
+'use strict';
+const express = require('express');
+const serverless = require('serverless-http');
 const app = express();
 
-const port = 443
+const router = express.Router();
+router.get('/', (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/html' });
+  res.write('<h1>Hello from Express.js!</h1>');
+  res.end();
+});
 let control = {
     "walgreens": {
         locations: {
@@ -9,18 +16,18 @@ let control = {
         }
     }
 };
-app.get('/demo', (req, res) => {
+router.get('/demo', (req, res) => {
     res.set("Access-Control-Allow-Origin", "*")
   res.send(JSON.stringify(control))
 })
-app.get('/demoControlTrue', (req, res) => {
+router.get('/demoControlTrue', (req, res) => {
     control.walgreens.locations["20876"] = true;
     res.send('Switched to true!')
 })
-app.get('/demoControlFalse', (req, res) => {
+router.get('/demoControlFalse', (req, res) => {
     control.walgreens.locations["20876"] = false;
     res.send('Switched to false!')
 })
-app.listen(port, () => {
-  console.log(`Started app`)
-})
+
+module.exports = app;
+module.exports.handler = serverless(app);

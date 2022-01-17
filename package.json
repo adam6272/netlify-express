@@ -1,6 +1,10 @@
 {
   "dependencies": {
-    "express.js": "^1.0.0"
+    "express.js": "^1.0.0",
+    "serverless-http": "^2.7.0"
   },
-  "main": "main.js"
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "main": "server.js"
 }
