@@ -5,8 +5,7 @@
     "netlify-lambda": "^1.6.3"
   },
   "scripts": {
-    "build": "netlify-lambda build express",
-    "start": "node server-local.js"
+    "start": "npm install && node server-local.js"
   },
   "main": "server-local.js"
 }
