@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express.js": "^1.0.0",
-    "serverless-http": "^2.7.0"
+    "serverless-http": "^2.7.0",
+    "netlify-lambda": "^1.6.3"
   },
   "scripts": {
     "build": "netlify-lambda build express",
